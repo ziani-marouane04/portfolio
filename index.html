@@ -703,14 +703,12 @@
 </head>
 <body>
 
-<!-- ===== LOADING SCREEN ===== -->
 <div id="loader">
   <div class="loader-logo">MZ</div>
   <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
   <div class="loader-text">Initializing Portfolio...</div>
 </div>
 
-<!-- ===== CIRCUIT BACKGROUND ===== -->
 <svg id="circuit-bg" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <pattern id="circuit-pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
@@ -727,12 +725,10 @@
   <rect width="100%" height="100%" fill="url(#circuit-pattern)"/>
 </svg>
 
-<!-- ===== PARTICLE CANVAS ===== -->
 <canvas id="particle-canvas"></canvas>
 
 <div class="content">
 
-<!-- ===== NAVBAR ===== -->
 <nav class="navbar" id="navbar">
   <div class="nav-logo">MZ<span>.dev</span></div>
   <ul class="nav-links">
@@ -750,7 +746,6 @@
   </button>
 </nav>
 
-<!-- Mobile menu -->
 <div class="mobile-menu" id="mobile-menu">
   <button class="mobile-close" id="mobile-close">✕</button>
   <a href="#about" class="mobile-link">About</a>
@@ -761,7 +756,6 @@
   <a href="ZIANI_Marouane_PFA.pdf" download class="btn-primary">Download CV</a>
 </div>
 
-<!-- ===== HERO ===== -->
 <section class="hero" id="home">
   <div class="hero-grid">
     <div class="hero-content">
@@ -819,7 +813,6 @@
 
 <div class="glow-line" style="max-width:800px;"></div>
 
-<!-- ===== ABOUT ===== -->
 <section id="about">
   <div class="container">
     <div class="section-header reveal">
@@ -875,7 +868,6 @@
   </div>
 </section>
 
-<!-- ===== SKILLS ===== -->
 <section id="skills" style="background: rgba(0,212,255,0.015);">
   <div class="container">
     <div class="section-header reveal">
@@ -884,12 +876,10 @@
       <div class="section-divider"></div>
     </div>
     <div class="skills-grid" id="skills-grid">
-      <!-- Skills injected by JS -->
-    </div>
+      </div>
   </div>
 </section>
 
-<!-- ===== EXPERIENCE ===== -->
 <section id="experience">
   <div class="container">
     <div class="section-header reveal">
@@ -960,7 +950,6 @@
   </div>
 </section>
 
-<!-- ===== PROJECTS ===== -->
 <section id="projects" style="background: rgba(123,47,190,0.03);">
   <div class="container">
     <div class="section-header reveal">
@@ -969,12 +958,10 @@
       <div class="section-divider"></div>
     </div>
     <div class="projects-grid" id="projects-grid">
-      <!-- Injected by JS -->
-    </div>
+      </div>
   </div>
 </section>
 
-<!-- ===== CERTIFICATIONS ===== -->
 <section id="certifications">
   <div class="container">
     <div class="section-header reveal">
@@ -1003,7 +990,6 @@
   </div>
 </section>
 
-<!-- ===== LANGUAGES ===== -->
 <section style="padding-top: 0;">
   <div class="container">
     <div class="section-header reveal">
@@ -1031,7 +1017,6 @@
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
 <section id="contact" style="background: rgba(0,212,255,0.015);">
   <div class="container">
     <div class="section-header reveal">
@@ -1041,7 +1026,7 @@
     </div>
     <div class="contact-grid">
       <div class="contact-info reveal">
-        <a href="mailto:ziani.marouane2004@gmail.com" class="contact-item">
+        <a href="mailto:ziani.marouane2004@gmail.com" class="contact-item" onclick="copyEmail(event)">
           <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
           <div>
             <div class="contact-item-label">Email</div>
@@ -1078,7 +1063,7 @@
           automation, or IoT. Whether you're a startup, industry leader, or research lab — 
           I'd love to contribute to your team.
         </p>
-        <a href="mailto:ziani.marouane2004@gmail.com" class="btn-primary" style="display:inline-flex;">
+        <a href="mailto:ziani.marouane2004@gmail.com" class="btn-primary" style="display:inline-flex;" onclick="copyEmail(event)">
           <i class="fas fa-paper-plane"></i> &nbsp;Send an Email
         </a>
         <br/><br/>
@@ -1090,7 +1075,6 @@
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-content">
     <div class="footer-logo">MZ.dev</div>
@@ -1099,16 +1083,14 @@
       Crafted with precision &amp; passion
     </div>
     <div class="footer-links">
-      <a href="mailto:ziani.marouane2004@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="mailto:ziani.marouane2004@gmail.com" aria-label="Email" onclick="copyEmail(event)"><i class="fas fa-envelope"></i></a>
       <a href="https://www.linkedin.com/in/marouane-ziani-31131b2a1/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
       <a href="tel:+212600938836" aria-label="Phone"><i class="fas fa-phone"></i></a>
     </div>
   </div>
 </footer>
 
-</div><!-- end .content -->
-
-<script>
+</div><script>
 // ===== LOADER =====
 window.addEventListener('load', () => {
   setTimeout(() => {
@@ -1333,6 +1315,18 @@ window.addEventListener('scroll', () => {
 document.querySelectorAll('.hero-content > *, .hero-visual').forEach(el => {
   el.style.animationPlayState = 'running';
 });
+
+// ===== COPIE EMAIL =====
+function copyEmail(event) {
+  // Essaie de copier l'adresse e-mail dans le presse-papiers
+  navigator.clipboard.writeText("ziani.marouane2004@gmail.com")
+    .then(() => {
+      alert("Adresse e-mail copiée : ziani.marouane2004@gmail.com");
+    })
+    .catch(err => {
+      console.error("Erreur lors de la copie : ", err);
+    });
+}
 </script>
 </body>
 </html>
